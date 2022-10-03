@@ -1,5 +1,9 @@
 package ua.goit.hw5.command;
 
+import ua.goit.hw5.command.store.StoreDeleteOrder;
+import ua.goit.hw5.command.store.StoreFindOrderById;
+import ua.goit.hw5.command.store.StoreGetInventory;
+import ua.goit.hw5.command.store.StorePlaceOrder;
 import ua.goit.hw5.command.user.*;
 import ua.goit.hw5.view.View;
 
@@ -19,6 +23,10 @@ public class Help implements Command {
     @Override
     public void execute(String input) {
         view.write(String.format("Enter %s to see all command", Help.HELP));
+        view.write(String.format("Enter %s to place order for a pet", StorePlaceOrder.PLACE_ORDER));
+        view.write(String.format("Enter %s to find order by orderId", StoreFindOrderById.FIND_ORDER_BY_ID));
+        view.write(String.format("Enter %s to delete order by orderId", StoreDeleteOrder.DELETE_ORDER_BY_ID));
+        view.write(String.format("Enter %s to get inventory", StoreGetInventory.GET_INVENTORY));
         view.write(String.format("Enter %s to create user", UserCreate.CREATE_USER_COMMAND));
         view.write(String.format("Enter %s to create users with array", UserCreateWithArray.CREATE_USERS_COMMAND));
         view.write(String.format("Enter %s to create users with list", UserCreateWithList.CREATE_USERS_COMMAND));

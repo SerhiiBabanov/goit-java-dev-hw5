@@ -8,7 +8,6 @@ public class Order {
     public Integer quantity;
     public String shipDate;
     public String status;
-    public OrderStatus Status;
     public Boolean complete;
 
     public Order() {
@@ -47,11 +46,11 @@ public class Order {
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
-    public void setStatus(OrderStatus status) {
-        Status = status;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Boolean getComplete() {
@@ -62,21 +61,19 @@ public class Order {
         this.complete = complete;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Objects.equals(id, order.id) && Objects.equals(petId, order.petId) && Objects.equals(quantity, order.quantity) && Objects.equals(shipDate, order.shipDate) && Objects.equals(status, order.status) && Status == order.Status && Objects.equals(complete, order.complete);
+        return Objects.equals(id, order.id) && Objects.equals(petId, order.petId) && Objects.equals(quantity, order.quantity) && Objects.equals(shipDate, order.shipDate) && Objects.equals(status, order.status) && Objects.equals(complete, order.complete);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, petId, quantity, shipDate, status, Status, complete);
+        return Objects.hash(id, petId, quantity, shipDate, status, complete);
     }
 
     @Override
@@ -87,7 +84,6 @@ public class Order {
                 ", quantity=" + quantity +
                 ", shipDate='" + shipDate + '\'' +
                 ", status='" + status + '\'' +
-                ", Status=" + Status +
                 ", complete=" + complete +
                 '}';
     }
