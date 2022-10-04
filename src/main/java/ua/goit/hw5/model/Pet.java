@@ -10,7 +10,7 @@ public class Pet {
     public String name;
     public String[] photoUrls;
     public List<Tag> tags;
-    public PetStatus status;
+    public String status;
 
     public Pet() {
     }
@@ -55,11 +55,11 @@ public class Pet {
         this.tags = tags;
     }
 
-    public PetStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(PetStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -68,7 +68,7 @@ public class Pet {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pet pet = (Pet) o;
-        return Objects.equals(id, pet.id) && Objects.equals(category, pet.category) && Objects.equals(name, pet.name) && Arrays.equals(photoUrls, pet.photoUrls) && Objects.equals(tags, pet.tags) && status == pet.status;
+        return Objects.equals(id, pet.id) && Objects.equals(category, pet.category) && Objects.equals(name, pet.name) && Arrays.equals(photoUrls, pet.photoUrls) && Objects.equals(tags, pet.tags) && Objects.equals(status, pet.status);
     }
 
     @Override

@@ -3,12 +3,14 @@ package ua.goit.hw5;
 import ua.goit.hw5.command.Command;
 import ua.goit.hw5.command.Exit;
 import ua.goit.hw5.command.Help;
+import ua.goit.hw5.command.pet.*;
 import ua.goit.hw5.command.store.StoreDeleteOrder;
 import ua.goit.hw5.command.store.StoreFindOrderById;
 import ua.goit.hw5.command.store.StoreGetInventory;
 import ua.goit.hw5.command.store.StorePlaceOrder;
 import ua.goit.hw5.command.user.*;
 import ua.goit.hw5.controller.ProjectManagementSystem;
+import ua.goit.hw5.services.PetService;
 import ua.goit.hw5.services.StoreService;
 import ua.goit.hw5.services.UserService;
 import ua.goit.hw5.utils.HttpUtils;
@@ -26,10 +28,19 @@ public class Main {
         HttpUtils httpUtils = new HttpUtils("https://petstore.swagger.io/v2");
         UserService userService = new UserService(httpUtils);
         StoreService storeService = new StoreService(httpUtils);
+        PetService petService = new PetService(httpUtils);
 
         List<Command> commands = new ArrayList<>();
         commands.add(new Help(view));
         commands.add(new Exit(view));
+
+        commands.add(new PetAddNewPet(petService, view));
+        commands.add(new PetDelete(petService, view));
+        commands.add(new PetFindById(petService, view));
+        commands.add(new PetFindByStatus(petService, view));
+        commands.add(new PetUpdateExisting(petService, view));
+        commands.add(new PetUpdateWithFormData(petService, view));
+        //commands.add(new PetUploadImage(petService, view));
 
         commands.add(new StoreDeleteOrder(storeService, view));
         commands.add(new StoreFindOrderById(storeService, view));
