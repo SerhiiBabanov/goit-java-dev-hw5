@@ -40,7 +40,7 @@ public class Main {
         commands.add(new PetFindByStatus(petService, view));
         commands.add(new PetUpdateExisting(petService, view));
         commands.add(new PetUpdateWithFormData(petService, view));
-        //commands.add(new PetUploadImage(petService, view));
+        commands.add(new PetUploadImage(petService, view));
 
         commands.add(new StoreDeleteOrder(storeService, view));
         commands.add(new StoreFindOrderById(storeService, view));

@@ -13,20 +13,6 @@ class HttpUtilsTest {
     private static final Path filePath = Paths.get("petImage.jpg");
     private static final HttpUtils HTTP_UTILS = new HttpUtils("https://petstore.swagger.io/v2");
 
-    @org.junit.jupiter.api.Test
-    void postFileJavaHTTPClient() {
-        //given
-        int statusCode;
-        //when
-        try {
-            statusCode = HTTP_UTILS.postFileJavaHTTPClient(URL_FOR_SEND_IMAGE, filePath);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        //then
-        assertEquals(200, statusCode);
-
-    }
 
     @org.junit.jupiter.api.Test
     void postFileJavaUrlConnection() {
@@ -56,14 +42,15 @@ class HttpUtilsTest {
         assertEquals(200, statusCode);
     }
 
+
     @Test
-    void postFileJanovVersion() {
+    void postFileNesvitVersion() {
         //given
         int statusCode;
         //when
         try {
-            statusCode = HTTP_UTILS.postFileJanovVersion(URL_FOR_SEND_IMAGE, filePath);
-        } catch (IOException | InterruptedException e) {
+            statusCode = HTTP_UTILS.postFileNesvitVersion(URL_FOR_SEND_IMAGE, filePath);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
         //then
