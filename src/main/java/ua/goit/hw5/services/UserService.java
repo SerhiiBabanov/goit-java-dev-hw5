@@ -53,7 +53,6 @@ public class UserService {
     public User getUserByUsername(String username){
         String url = "/user/" + username;
         HttpResponse<String> response = httpUtils.get(url);
-        System.out.println(response.body());
         return gson.fromJson(response.body(), User.class);
     }
 
