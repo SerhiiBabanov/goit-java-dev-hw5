@@ -22,7 +22,7 @@ public class UserService {
         User user = new User();
         user.setId(0L);
         view.write("Write username");
-        user.setUserName(view.read());
+        user.setUsername(view.read());
         view.write("Write first name");
         user.setFirstName(view.read());
         view.write("Write last name");
